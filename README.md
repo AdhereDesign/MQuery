@@ -37,9 +37,10 @@
 Mquery用于简化调用MugedaAPI编程<br>
 基础版适用于未学习过或有一定JS基础的用户使用<br>
 使用 `$("元素")` 即可获取元素，而不需要使用较长代码<br>
-例如获取修改所有元素#1 #2… 的属性
 
 ### 使用案例
+例如获取修改所有元素#1 #2… 的属性
+
 使用JS:
 
 ```
@@ -56,6 +57,23 @@ while ((element = scene.getObjectByName(`元素#${id}`))) {
 
 使用Mquery:
 `$("元素*").top = 100;`
+
+<br><br><br>
+
+例如获取所有元件`元件#1 #2…`并且修改里面的文本
+
+使用JS:
+
+```
+    const scene = mugeda.scene; let id = 1; let component;
+    while ((component = scene.getObjectByName(`元件#${id}`))) {
+        const textElement = component.scene.getObjectByName("文本");
+        if (textElement) {textElement.text = "修改值";}id++;
+    }
+```
+
+使用Mquery:
+`$("元件*/文本").text = "修改值"`
 
 <br>
 <br>
